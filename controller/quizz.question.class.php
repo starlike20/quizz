@@ -18,8 +18,10 @@
             global $connexion;
             $requet="SELECT`id_question` FROM `quizz_question`Where `id_quizz`=".$i."";
             $result= $connexion->query($requet);
+            $i=0;
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
-                $t=$a['id_question'];
+                $t[$i]=$a['id_question'];
+                $i++;
             }
             return $t;
         }
@@ -31,11 +33,11 @@
         public function modifiqquestion($iq,$iqm,$iqt,$iqtm){
             global $connexion;
             if($iq!=null){
-                $requet="UPDATE `quizz_question` set `reponse`='".$iqm."' where `id_quizz`='".$iq."' ";
+                $requet="UPDATE `quizz_question` set `id_quizz`='".$iqm."' where `id_question`='".$iq."' ";
                 $result= $connexion->query($requet);
             }
             if($iqt!=null){
-                $requet="UPDATE `quizz_question` set `reponse`='".$iqtm."' where `id_question`='".$iqt."' ";
+                $requet="UPDATE `quizz_question` set `id_question`='".$iqtm."' where `id_quizz`='".$iqt."' ";
                 $result= $connexion->query($requet);
             }
         }
