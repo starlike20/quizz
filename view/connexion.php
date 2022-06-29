@@ -15,7 +15,7 @@
                 <div class="element">
                     <span>e-mail:</span>
                     <input type="text" placeholder="entrez votre addresse e mail" id="mail">
-                    <p id="erro"></p>
+                    <span id="erro"></span>
                 </div>
                 <div class="element">
                     <span>mot de passe:</span>

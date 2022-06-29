@@ -32,6 +32,15 @@
             }
             return $t;
         }
+        public function get_commentaire($i){
+            global $connexion;
+            $requet="SELECT`commentaire` FROM `question`Where `id_question`=".$i."";
+            $result= $connexion->query($requet);
+            while($a=$result->fetch_array(MYSQLI_ASSOC)){
+                $t=$a['commentaire'];
+            }
+            return $t;
+        }
         //2-dans un second temps on va supprimer en fonction del'id de la questio
         public function supprime_question($i){
             global $connexion;

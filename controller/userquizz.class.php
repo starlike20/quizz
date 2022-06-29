@@ -5,16 +5,18 @@
         }
         public function getidquiz($i){
             global $connexion;
-            $requet="SELECT`id_quizz` FROM `user-quizz`Where `id_user`=".$i."";
+            $requet="SELECT`id_quizz` FROM `user-quizz`Where `id_user`='".$i."'";
             $result= $connexion->query($requet);
+            $i=0;
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
-                $t=$a['id_quizz'];
+                $t[$i]=$a['id_quizz'];
+                $i++;
             }
             return $t;
         }
-        public function getscore($i){
+        public function getscore($i,$id){
             global $connexion;
-            $requet="SELECT`score` FROM `user-quizz`Where `id_user`=".$i."";
+            $requet="SELECT`score` FROM `user-quizz`Where `id_user`=".$i." and `id_quizz`='".$id."'";
             $result= $connexion->query($requet);
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
                 $t=$a['score'];
@@ -23,10 +25,12 @@
         }
         public function getid_user($i){
             global $connexion;
-            $requet="SELECT`id_user` FROM `user-quizz`Where `id_quizz`=".$i."";
+            $requet="SELECT`id_user` FROM `user-quizz`Where `id_quizz`='".$i."'";
             $result= $connexion->query($requet);
+            $i=0;
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
-                $t=$a['id_user'];
+                $t[$i]=$a['id_user'];
+                $i++;
             }
             return $t;
         }

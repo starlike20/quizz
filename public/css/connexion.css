@@ -55,3 +55,28 @@ form{
     -webkit-appearance: none;
     appearance: none;
 }
+/**** gere la touche afficher***/
+#masque{
+    position:relative;
+    right:54px;   
+}
+#aficher{
+    visibility: hidden;
+}
+/***** role dans nscription  *****/
+#role{
+    height: 30px;
+    border:none;
+    background-color: rgb(124, 185, 255);
+    appearance: none;
+}
+.faux{
+    border-color: red;
+    box-shadow: 0 0 0 0 red;
+    animation: change 2s infinite;
+}
+@keyframes change{
+    to{
+        box-shadow: 0 0 0 5px rgba(1, 0, 0, 0.01);
+    }
+}

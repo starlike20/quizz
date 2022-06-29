@@ -20,16 +20,23 @@ selection.addEventListener('click',function(){
 })
 mail.addEventListener('keyup',function(){
     let n=mail.value
+    valimail=1
     if(n.includes(' ')){
         erro.innerText="entrez un mail valide"
         erro.style.color="red"
+        valimail=0
     }
     else if(n.includes('@') && n.includes('.')){
         erro.innerText="mail respectant le formatage"
         erro.style.color="green"
+        valimail=1
     }
     else{
         erro.innerText="ceci n'est pas encore un mail"
         erro.style.color="orange"
+        valimail=0
     }
 })
+function verificationtous(){
+    
+}

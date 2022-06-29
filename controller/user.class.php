@@ -3,7 +3,7 @@
     class user{
         public function __construct(){
         }
-        public function getpseudo($i){
+        public function getspeudo($i){
             global $connexion;
             $requet="SELECT`speudo` FROM `user`Where `id_user`=".$i."";
             $result= $connexion->query($requet);
@@ -69,6 +69,7 @@
             $requet="SELECT * FROM `user`";
             $result= $connexion->query($requet);
             $i=0;
+            $t[0]=0;
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
                 $t[$i]=$a['id_user'];
                 $i++;

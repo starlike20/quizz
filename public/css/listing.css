@@ -1,0 +1,97 @@
+/* .quizz-petit{
+    width: 97px;
+    height: 97px;
+    margin: 5px;
+    border-radius: 10px;
+   display: inline-block;
+} */
+body {
+    background-color: aquamarine;
+}
+.quizz-petit{
+    width: 205px;
+    height: 205px;
+    border-radius: 10px;
+    margin: 5px;
+    float: left;
+    box-shadow:10px 10px 10px gray ;
+    animation: change;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.changement{
+    animation: change 3s;
+}
+.changer{
+    width: 214px;
+    height: 214px;
+}
+.quizz-grand{
+    float: left;
+    width: 319px;
+    height: 319px;
+    border-radius: 10px;
+    margin: 5px;
+    
+}
+ #listequiz{
+    display: flex;
+    flex-direction: column;
+    
+}
+.contain{
+    display: flex;
+    flex-direction: row;
+    margin:5px;
+    justify-content: flex-start;
+} 
+/* .bloc-grand{
+    display:flex;
+    width: 319px;
+    height: 319px;
+}
+.bloc-grand-verticale{
+    display:flex;
+    flex-direction: column;
+}
+.bloc-horizontale{
+    display: flex;
+    flex-direction: row;
+} */
+/* positionnement des element */
+#listequiz{
+    position: absolute;
+    top:200px;
+}
+header{
+    position: absolute;
+    display:flex;
+    justify-content: space-between;
+    color: rgb(0, 106, 255);
+    height: 100px;
+    width: 99%;
+    top:0px;
+    left: 0px;
+    padding: 5px;
+} 
+#listequiz span{
+    position: relative;
+    top:150px;
+    text-align: center;
+    padding: 5px;
+}
+.none{
+    display: none;
+}
+@keyframes change{
+    to{
+        width: 214px;
+        height: 214px;
+    }
+}
+header input{
+    height: 30px;
+    width: 200px;
+}

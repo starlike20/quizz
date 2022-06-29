@@ -1,0 +1,56 @@
+header input{
+    height: 30px;
+    width: 200px;
+}
+body {
+    background-color: aquamarine;
+}
+header{
+    position: absolute;
+    display:flex;
+    justify-content: space-between;
+    color: rgb(0, 106, 255);
+    height: 100px;
+    width: 99%;
+    top:0px;
+    left: 0px;
+    padding: 5px;
+} 
+#bod{
+    position: absolute;
+    top:200px;
+    color:white;
+    text-align: center;
+    width: 99%;
+}
+#titre{
+    font-size: 60px;
+    text-align: center;
+}
+#tritresecond{
+    font-size: 50px;
+}
+#titre3{
+    font-size:40px;
+}
+#titre4{
+    font-size: 30px;
+}
+#titre5{
+    font-size: 20px;
+}
+#envoie{
+    position: absolute;
+    left: 680px;
+    top: 400px;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgb(0, 106, 255);
+    color: black;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+}

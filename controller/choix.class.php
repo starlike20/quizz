@@ -37,8 +37,10 @@
             global $connexion;
             $requet="SELECT`id_choix` FROM `choix`Where `id_question`=".$i."";
             $result= $connexion->query($requet);
+            $i=0;
             while($a=$result->fetch_array(MYSQLI_ASSOC)){
-                $t=$a['id_choix'];
+                $t[$i]=$a['id_choix'];
+                $i++;
             }
             return $t;
         }
