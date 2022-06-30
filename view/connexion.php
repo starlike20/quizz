@@ -99,7 +99,8 @@
         }
     }
     verif(t[0],t[1])
-}</script>
+}
+</script>
 <script src="../public/javascript/connexion.js">
 </script>
 </html>

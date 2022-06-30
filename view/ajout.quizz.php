@@ -64,6 +64,8 @@
                     }  
                     ?>
                 </fieldset>
+                <input type='texte' id="ajoute" class="none" >
+                <div id="ajouter"><span onclick="ajouter()">+</span></div>
             </div>
             <div class="m">
                     <input type="file" name="image" id="image" placeholder="image" onchange="verifimage()">
@@ -72,5 +74,12 @@
             <input type="submit" id="envoyez" value="etape suivant">
         </form>
     </div>
+    <script>
+        ajout=document.getElementById('ajoute')
+        function ajouter(){
+            ajout.ClassList.remove("none");
+            console.log(ajout)
+        }
+    </script>
 </body>
 </html>

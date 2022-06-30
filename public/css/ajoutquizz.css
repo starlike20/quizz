@@ -62,3 +62,11 @@ select{
     appearance: none;
     border-radius: 6px;
 }
+.none{
+    display: none;
+}
+#ajouter{
+    background-color: rgb(28, 142, 249);
+    color:white;
+    cursor: pointer;
+}
