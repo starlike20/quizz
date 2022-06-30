@@ -5,6 +5,8 @@ require_once("quizz.question.class.php");
 require_once("quizz.class.php");
 require_once("userquizz.class.php");
 require_once("choix.class.php");
+require_once("user.class.php");
+$user=new user();
 $choix=new choix();
 $quizz=new quizz();
 $userquiz=new userquizz();
@@ -50,6 +52,47 @@ function bonnereponse($id_quest){
 }
 function loand($i){
     return $_SESSION['i']=$i+1;
+}
+function appreciation($n,$i){
+    $n=($n/$i)*100;
+    if($n>=80){
+        return "excelent";
+    }
+    elseif(60<$n && $n<81){
+        return "tres bien";
+    }
+    elseif(40<$n && $n<61){
+        return "passable";
+    }
+    elseif(20<$n && $n<41){
+        return "insuffisant";
+    }
+    else{
+        return "null";
+    }
+}
+function verification(){
+    global $user;
+    if(!empty($_POST) && isset($_POST)){
+        $mail=$_POST['mail'];
+        $mdp=$_POST['password'];
+        $n=$user->n();
+        $t[0]=0; 
+        $t[1]=0;
+        foreach($n as $cles=>$valeur){
+            if($mail==$user->getemail($valeur)){
+                $t[0]=1;
+                if($mdp==$user->getpassword($valeur)){
+                    $t[1]=1;
+                    $t[2]=$valeur;
+                }
+            }
+        }
+        return $t;
+    }
+    else{
+        return $t=[0,0];
+    }
 }
 // if($n>=80){
 //     echo "tres facile";

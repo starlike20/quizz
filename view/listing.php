@@ -2,7 +2,6 @@
 <html lang="fr">
     <?php require_once("../controller/quizz.class.php");
         session_start();
-        unset($_SESSION['i']);
     $quizz=new quizz();
     $n=$quizz->n();
     $i=1;

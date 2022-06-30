@@ -1,0 +1,64 @@
+#grand{
+    position: absolute;
+    width: 99%;
+}
+h1{
+    color:rgb(28, 142, 249) ;
+    text-align: center;
+}
+h2{
+    position: relative;
+    top:50px;
+    text-align: center;
+    color:rgb(28, 142, 249) ;
+}
+form{
+    top:150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(255, 255, 255);
+    width: 500px;
+    border-radius: 20px;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:250px;
+    width:99%;
+}
+.m{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.m input{
+    position: relative;
+    height: 35px;
+    width: 300px;
+    border:none;
+    background-color: rgb(169, 209, 255);
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 6px;
+}
+select{
+    height: 35px;
+    border:none;
+    background-color: rgb(169, 209, 255);
+    appearance: none;
+    border-radius: 6px;
+}
+#envoyez{
+    margin: 20px;
+    width: 250px;
+    height: 30px;
+    border:none;
+    background-color: rgb(28, 142, 249);
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 6px;
+}

@@ -21,7 +21,7 @@
             }
             return $t;
         }
-        public function password($i){
+        public function getpassword($i){
             global $connexion;
             $requet="SELECT`password` FROM `user`Where `id_user`=".$i."";
             $result= $connexion->query($requet);
@@ -29,6 +29,12 @@
                 $t=$a['password'];
             }
             return $t;
+        }
+        public function ajoututilisateur($speudo,$email,$pasword,$role,$isconnect){
+            global $connexion;
+            $requet="INSERT INTO `user`(`speudo`, `e-mail`, `password`, `role`, `isconnect`) 
+            VALUES ('".$speudo."','".$email."','".$pasword."','".$role."','".$isconnect."'";
+            $result= $connexion->query($requet);
         }
         public function role($i){
             global $connexion;

@@ -50,6 +50,12 @@
             }
             return $t;
         }
+        public function ajoutquizz($titre,$difficulter,$datedecreation,$id_user){//ajouter un medecin
+            global $connexion;
+            $requet="INSERT INTO `quizzs`(`titre`, `difficulter`, `date_creation`, `id_user`) 
+            VALUES ('".$titre."','".$difficulter."','".$datedecreation."','".$id_user."')";
+            $result= $connexion->query($requet);
+        }
         //3-dans un troisiemme temps on ferra une supression des elements en fonction de l'id
         public function supprime_choix($i){
             global $connexion;

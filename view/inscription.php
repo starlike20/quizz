@@ -16,10 +16,10 @@
     <div id="bod">
         <div id="con">
             <h1>inscription</h1>
-            <form>
+            <form action="inscriptiontrait.php" method="POST">
                 <div class="element">
                     <span>speudo:</span>
-                    <input type="text" placeholder="entrez votre addresse votre speudo" id="speudo">
+                    <input type="text" placeholder="entrez votre addresse votre speudo" id="speudo" name="speudo" >
                     <span id="erros"></span>
                 </div>
                 <div class="element">
@@ -32,12 +32,12 @@
                 </div>
                 <div class="element">
                     <span>e-mail:</span>
-                    <input type="text" placeholder="entrez votre addresse e mail" id="mail">
+                    <input type="text" placeholder="entrez votre addresse e mail" id="mail" name="mail">
                     <span id="erro"></span><span id="erroo"></span>
                 </div>
                 <div class="element">
                     <span>mot de passe:</span>
-                    <input type="password" placeholder="entrez votre mot de passe" id="password">
+                    <input type="password" placeholder="entrez votre mot de passe" id="password" name="password">
                 </div>
                 <div class="p" class="element">
                     <input type="checkbox" name="selection" id="selection">
@@ -47,7 +47,6 @@
                 <div class="element">
                     <input type="submit" id="envoyer" onclick="verif()">
                 </div>
-                <?php echo $user->n()[0];?>
             </form>
         </div>
     </div>
@@ -66,14 +65,16 @@
     let email=document.getElementById('mail');
     let role=document.getElementById('role');
     let mdp=document.getElementById('password');
+    let validemail
+    let validesepeudo
     <?php $n=$user->n();?>
     <?php foreach($n as $cles=>$valeur):?>
         spe[<?php echo $cles ?>]="<?php echo $user->getspeudo($valeur)?>" ;
-        maiil[<?php echo $cles ?>]="<?php echo $user->getemail($valeur)?> ";
+        maiil[<?php echo $cles ?>]="<?php echo $user->getemail($valeur)?>";
     <?php endforeach?>
     speudo.addEventListener('keyup',function(){
         errosp.innerText= null;
-        validespeudo=1
+        validesepeudo=1
         spe.forEach(element => {
            if(speudo.value==element) {
                 errosp.innerText="speudo deja utiliser";
@@ -92,16 +93,47 @@
                 validemail=0
             }
         })
-    })
-    function verif(){
-        if(validemail==0){
-            email.classList.add("faux");
+        if(email.value.includes(' ')){
+            erro.innerText="entrez un mail valide"
+            erro.style.color="red"
+            validemail=0
         }
-        if(validesepeudo==0){
+        else if(email.value.includes('@') && email.value.includes('.')){
+            erro.innerText="mail respectant le formatage"
+            erro.style.color="green"
+            validemail=1
+        }
+        else{
+            erro.innerText="ceci n'est pas encore un mail"
+            erro.style.color="orange"
+            validemail=0
+        }
+    })
+    
+    function verif(){
+        if(email.classList[0]=="faux"){
+            email.classList.remove("faux")
+        }
+        if(speudo.classList[0]=="faux"){
+            speudo.classList.remove("faux")
+        }
+        if(role.classList[0]=="faux"){
+            role.classList.remove("faux")
+        }
+        if(mdp.classList[0]=="faux"){
+           mdp.classList.remove("faux")
+        }
+        console.log("1")
+        if(validemail==0 || validemail==null){
+            email.classList.add("faux");
+            event.preventDefault()
+        }
+        if(validesepeudo==0 || validesepeudo==null){
             speudo.classList.add("faux")
         }
         if(speudo.value==""){
             speudo.classList.add("faux")
+            event.preventDefault()
         }
         if(role.value=="choisir un role"){
             role.classList.add("faux")

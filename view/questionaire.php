@@ -11,18 +11,6 @@
     $quizzquestion=new quizz_question();
     $question=new question();
     $quizz=new quizz();
-    if(empty($_SESSION['i']) && !isset($_SESSION['i'])){
-        $i=0;
-    }
-    else{
-        $i=$_SESSION['i'];
-    }
-    if(empty($_SESSION['score']) && !isset($_SESSION['score'])){
-        $c=0;
-    }
-    else{
-        $c=$_SESSION['score'];
-    }
     ?>
 <head>
     <meta charset="UTF-8">
@@ -34,6 +22,8 @@
 <body>
     <header>
         <?php $id=$_GET['id'];
+        $c=$_GET['c'];
+        $i=$_GET['i'];
         $n=$quizzquestion->get_id_question($id);
         $a=count($n);
         ?>
@@ -46,7 +36,7 @@
     </header>
     <div>
         <div id="ba">
-            <div id="score"><span>score:<?php echo $c;?></span></div>
+            <div><span>score:<span id="score"><?php echo $c;?></span></span></div>
             <span><?php echo $i+1?>/<?php echo $a?></span>
             <div id="base">
                 <div id="evolution"></div>
@@ -66,6 +56,7 @@
             </div>
             <div id="valider" class="affiche" onclick="valide()">valider</div>
             <div id="continuer" class="none" onclick="next()">continuer</div>
+            <div id="terminer" onclick="terminer()">terminer</div>
         </div>
     </div>
 </body>
@@ -98,8 +89,9 @@
     let continuer=document.getElementById("continuer")
     let commentaire=document.getElementById("commentaire")
     let evolution=document.getElementById("evolution")
+    let body=document.querySelector("body")
     let p=0 
-    let c=;
+    let c=parseInt(document.getElementById("score").textContent);
     let valid
     let select
     evolution.style.width="<?php echo $b?>%"
@@ -151,8 +143,30 @@
     })
     function next(){
         <?php loand($i)?>
-        location.reload()
+        if(<?php echo $i?>==21){
+            location.href="finquizz.php?id=<?php echo $id?>&c="+c+"&i=<?php echo $i+1?>"
+        }
+        else{
+            location.href="questionaire.php?id=<?php echo $id?>&c="+c+"&i=<?php echo $i+1?>"
+        }
     }
+    function terminer(){
+        location.href="finquizz.php?id=<?php echo $id?>&c="+c+"&i=<?php echo $i+1?>"
+    }
+    window.addEventListener('load',()=>{
+        console.log('1')
+       return false
+    })
+    body.addEventListener('load',()=>{
+        event.preventDefault()
+        console.log("2")
+    })
 </script>
+<script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
 <script src="../public/javascript/questionaire.js"></script>
 </html>

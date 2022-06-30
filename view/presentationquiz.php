@@ -55,7 +55,7 @@
             <div id="titre3">creé par:<?php echo $user->getspeudo($quizz->get_id_user($id))?>  ,le   ,<?php echo $quizz->get_date_creation($id)?></div>
             <div><span id="titre4"><?php echo nombredequestion($id)?>questions,<?php echo nombredejoueur($id) ?>joueurs</span></div>
             <span id="titre5">difficulté  :<?php difficulter($id) ?></span>
-            <a id="envoie" href="questionaire.php?id=<?php echo $id?>">commencer</a>
+            <a id="envoie" href="questionaire.php?id=<?php echo $id?>&c=0&i=0">commencer</a>
         </div>
         <footer>
 
